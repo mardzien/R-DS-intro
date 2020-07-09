@@ -68,3 +68,36 @@ df[, 'newcol.copy2'] <- df$newcol
 
 # setting/ renaming column names
 colnames(df) <- c('1', '2', '3', '4', '5')
+
+colnames(df)[1] <- "first.col"
+
+
+# selecting multiple rows
+
+df[1:3,]
+
+# excluding some rows
+df[-1:-3,]
+
+# conditional selecting
+
+mtcars[mtcars$mpg > 20,]
+
+# multiple conditions
+mtcars[mtcars$mpg > 20 & mtcars$cyl ==6, ]
+mtcars[mtcars$mpg > 20 & mtcars$cyl ==6, c('mpg', 'cyl', 'hp')]
+
+
+subset(mtcars, mpg > 20 & cyl ==6)
+
+
+# selecting multiple columns
+mtcars[, c(1:3)]
+mtcars[, c('mpg', 'cyl', 'hp')]
+
+
+# dealing with missing data
+any(is.na(df)) # checking for missing data
+
+
+mtcars$mpg[is.na(mtcars$mpg)] <- mean(mtcars$mpg)
