@@ -93,5 +93,3 @@ prime_check <- function(number){
   }
   return(T)
 }
-
-
